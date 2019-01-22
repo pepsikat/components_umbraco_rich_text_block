@@ -1,0 +1,251 @@
+/* =variables */
+@rtTitleColor:			#3B3B3B;
+@rtTextColor:			#3B3B3B;
+@rtLinkColor:			#0088BB;
+@rtLinkHoverColor:		#3B3B3B;
+@rtTableBorderColor:	#E5E5E5;
+
+@rtH1:		50px;
+@rtH2:		50px;
+@rtH3:		32px;
+@rtH4:		24px;
+@rtH5:		20px;
+@rtH6:		18px;
+
+@rtMarginTop:				1.125em;
+@rtMarginTopAfterHeading:	1.334em;
+@rtTablePadding:			20px;
+@rtMarginTopFigcaption:		.6em;
+
+@rtMobileLandscape: ~"(min-width: 480px)";
+
+/* =mixins */
+.underline(@color: black, @alpha: 0.6) {
+	text-decoration: none;
+	background-image: linear-gradient(
+		to bottom,
+		rgba(red(@color),green(@color),blue(@color), 0) 50%,
+		rgba(red(@color),green(@color),blue(@color), @alpha) 50%
+	);
+	background-repeat: repeat-x;
+	background-size: 2px 2px;
+	background-position: 0 1em;
+}
+
+/* =component */
+.richtext {
+	&__markup-h1,
+	&__markup-h2,
+	&__markup-h3,
+	&__markup-h4,
+	&__markup-h5,
+	&__markup-h6 {
+		margin: @rtMarginTop 0 0;
+		line-height: 1.25;
+		font-weight: 600;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&__markup-p,
+	&__markup-ul,
+	&__markup-ol,
+	&__markup-table,
+	&__markup-blockquote,
+	&__markup-iframe {
+		margin: @rtMarginTop 0 0;
+		line-height: 1.334;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&__markup-h1,
+	&__markup-h2,
+	&__markup-h3,
+	&__markup-h4,
+	&__markup-h5,
+	&__markup-h6 {
+		& + &__markup-p {
+			margin-top: @rtMarginTopAfterHeading;
+		}
+	}
+	&__markup-h1 {
+		font-size: @rtH1;
+	}
+	&__markup-h2 {
+		font-size: @rtH2;
+	}
+	&__markup-h3 {
+		font-size: @rtH3;
+	}
+	&__markup-h4 {
+		font-size: @rtH4;
+	}
+	&__markup-h5 {
+		font-size: @rtH5;
+	}
+	&__markup-h6 {
+		font-size: @rtH6;
+	}
+
+	&__markup-a {
+		color: @rtLinkColor;
+		.underline(@rtLinkColor);
+
+		&:hover {
+			color: @rtLinkHoverColor;
+			.underline(@rtLinkHoverColor);
+		}
+	}
+
+	&__markup-em {
+		font-style: italic;
+	}
+	&__markup-strong {
+		font-weight: 600;
+	}
+	&__markup-img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	&__markup-table {
+		border: 0;
+		width: 100%;
+		border-collapse: collapse;
+		table-layout: fixed;
+	}
+
+	&__markup-tr {
+		&:first-child {
+			display: none;
+
+			@media @rtMobileLandscape {
+				display: table-row;
+				text-align: left;
+			}
+		}
+	}
+
+	&__markup-tr:first-child &__markup-td {
+		font-weight: bold;
+
+		@media @rtMobileLandscape {
+			border-bottom: 5px solid @rtTableBorderColor;
+		}
+	}
+
+	&__markup-td {
+		border: none;
+		padding: @rtTablePadding 0;
+		border-bottom: 1px solid @rtTableBorderColor;
+		display: inline-block;
+		width: 100%;
+
+		&:last-child {
+			border-bottom: 5px solid @rtTableBorderColor;
+		}
+
+		@media @rtMobileLandscape {
+			display: table-cell;
+			vertical-align: top;
+			width: auto;
+
+			&:last-child {
+				border-bottom: 1px solid @rtTableBorderColor;
+			}
+		}
+	}
+
+	&__markup-td &__markup-a {
+		word-break: break-all;
+	}
+
+	&__markup-ul,
+	&__markup-ol {
+		padding: 0;
+	}
+
+	&__markup-li {
+		margin: 0 0 @rtMarginTop 25px;
+		position: relative;
+	}
+
+	&__markup-ol &__markup-li {
+		margin-left: 0;
+		list-style-position: inside;
+	}
+
+	&__markup-ul {
+		list-style: none;
+	}
+
+	&__markup-ul > &__markup-li:before {
+		content: '—';
+		position: absolute;
+		left: -23px;
+		top: 0;
+	}
+
+	&__markup-li &__markup-p {
+		margin: 0;
+	}
+
+	&__markup-figure {
+		padding: 0;
+		margin: @rtMarginTop 0 0 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&__markup-figcaption {
+		margin: @rtMarginTopFigcaption 0 0;
+	}
+
+	&__markup-blockquote {
+		padding: 0;
+		font-weight: 700;
+		display: inline-block;
+		vertical-align: top;
+		color: @rtTitleColor;
+	}
+
+	&__markup-iframe {
+		width: 100%;
+	}
+
+	.markup-box_16-9 {
+		position: relative;
+		width: 100%;
+		max-width: 600px;
+		margin-top: @rtMarginTop;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:before {
+			display: block;
+			content: " ";
+			width: 100%;
+			padding-top: 100% * 9 / 16;
+		}
+	}
+
+	.markup-box_16-9 > &__markup-iframe {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+}

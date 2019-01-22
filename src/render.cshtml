@@ -1,2 +1,4 @@
 @inherits Umbraco.Web.Mvc.UmbracoViewPage<dynamic>
-@Html.Raw(Model.value)
+<div class="richtext">
+	@Html.Raw(HtmlTransformationService.Apply(Model.value, "richtext"))
+</div>
