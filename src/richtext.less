@@ -1,10 +1,3 @@
-/* =variables */
-@rtTitleColor:			#3B3B3B;
-@rtTextColor:			#3B3B3B;
-@rtLinkColor:			#0088BB;
-@rtLinkHoverColor:		#3B3B3B;
-@rtTableBorderColor:	#E5E5E5;
-
 @rtH1:		50px;
 @rtH2:		50px;
 @rtH3:		32px;
@@ -13,26 +6,11 @@
 @rtH6:		18px;
 
 @rtMarginTop:				1.125em;
-@rtMarginTopAfterHeading:	1.334em;
 @rtTablePadding:			20px;
 @rtMarginTopFigcaption:		.6em;
 
 @rtMobileLandscape: ~"(min-width: 480px)";
 
-/* =mixins */
-.underline(@color: black, @alpha: 0.6) {
-	text-decoration: none;
-	background-image: linear-gradient(
-		to bottom,
-		rgba(red(@color),green(@color),blue(@color), 0) 50%,
-		rgba(red(@color),green(@color),blue(@color), @alpha) 50%
-	);
-	background-repeat: repeat-x;
-	background-size: 2px 2px;
-	background-position: 0 1em;
-}
-
-/* =component */
 .richtext {
 	&__markup-h1,
 	&__markup-h2,
@@ -42,7 +20,6 @@
 	&__markup-h6 {
 		margin: @rtMarginTop 0 0;
 		line-height: 1.25;
-		font-weight: 600;
 
 		&:first-child {
 			margin-top: 0;
@@ -63,16 +40,6 @@
 		}
 	}
 
-	&__markup-h1,
-	&__markup-h2,
-	&__markup-h3,
-	&__markup-h4,
-	&__markup-h5,
-	&__markup-h6 {
-		& + &__markup-p {
-			margin-top: @rtMarginTopAfterHeading;
-		}
-	}
 	&__markup-h1 {
 		font-size: @rtH1;
 	}
@@ -93,21 +60,17 @@
 	}
 
 	&__markup-a {
-		color: @rtLinkColor;
-		.underline(@rtLinkColor);
-
-		&:hover {
-			color: @rtLinkHoverColor;
-			.underline(@rtLinkHoverColor);
-		}
+		
 	}
 
 	&__markup-em {
 		font-style: italic;
 	}
+
 	&__markup-strong {
 		font-weight: 600;
 	}
+
 	&__markup-img {
 		display: block;
 		max-width: 100%;
@@ -136,19 +99,22 @@
 		font-weight: bold;
 
 		@media @rtMobileLandscape {
-			border-bottom: 5px solid @rtTableBorderColor;
+			border-bottom-width: 5px;
+			border-bottom-style: solid;
 		}
 	}
 
 	&__markup-td {
 		border: none;
 		padding: @rtTablePadding 0;
-		border-bottom: 1px solid @rtTableBorderColor;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
 		display: inline-block;
 		width: 100%;
 
 		&:last-child {
-			border-bottom: 5px solid @rtTableBorderColor;
+			border-bottom-width: 5px;
+			border-bottom-style: solid;
 		}
 
 		@media @rtMobileLandscape {
@@ -157,7 +123,8 @@
 			width: auto;
 
 			&:last-child {
-				border-bottom: 1px solid @rtTableBorderColor;
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
 			}
 		}
 	}
