@@ -2,9 +2,9 @@
 	"gridEditors": [
 		{
 			"name": "Rich text Block",
-			"alias": "richTextBlock",
-			"view": "~/App_Plugins/RichTextBlock/editor.html",
-			"render": "~/App_Plugins/RichTextBlock/render.cshtml",
+			"alias": "richtextBlock",
+			"view": "/App_Plugins/RichTextBlock/RichTextBlockView.html",
+			"render": "/App_Plugins/RichTextBlock/RichTextBlockRender.cshtml",
 			"icon": "icon-article"
 		}
 	]
