@@ -3,6 +3,7 @@ Rich text block for the Base Section
 
 Dependencies:
 * Skybrud.Umbraco.GridData - https://github.com/skybrud/Skybrud.Umbraco.GridData (install via nuget)
+* HtmlTransformation - https://www.nuget.org/packages/HtmlTransformation/ (install via nuget)
 
 
 Installation Steps:

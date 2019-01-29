@@ -1,5 +1,6 @@
+@using Graph.Components.RichtextBlock
 @using Skybrud.Umbraco.GridData.Values
 @using Skybrud.Umbraco.GridData.Rendering
 @inherits Umbraco.Web.Mvc.UmbracoViewPage<GridControlWrapper<GridControlRichTextValue>>
 
-@Html.Raw(Model.Value.HtmlValue)
+@Html.Raw(HtmlTransformationService.Apply(Model.Value.ToString(), "richtext"))
