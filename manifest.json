@@ -1,0 +1,5 @@
+{
+	"name": "RichTextBlock",
+	"destination": "App_Plugins",
+	"addToCsproj": true
+}
