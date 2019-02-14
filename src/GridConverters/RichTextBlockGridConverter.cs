@@ -13,7 +13,10 @@ namespace Graph.Components.RichtextBlock
 		{
 			value = null;
 
-			value = GridControlRichTextValue.Parse(control, token);
+			if (control.Editor.Alias == "richtextBlock")
+			{
+				value = GridControlRichTextValue.Parse(control, token);
+			}
 
 			return value != null;
 		}
@@ -22,7 +25,10 @@ namespace Graph.Components.RichtextBlock
 		{
 			config = null;
 
-			config = GridEditorTextConfig.Parse(editor, token as JObject);
+			if (editor.Alias == "richtextBlock")
+			{
+				config = GridEditorTextConfig.Parse(editor, token as JObject);
+			}
 
 			return config != null;
 		}
