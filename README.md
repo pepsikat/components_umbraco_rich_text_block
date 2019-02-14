@@ -7,6 +7,9 @@ Nuget:
 
 Dependencies:
 * [Base Section](https://github.com/graphuk/components_umbraco_base_section) (install it via Stamp)
+```
+stamp component fetch graphuk components_umbraco_base_section
+```
 
 Installation Steps:
 1. Install Nuget packages
