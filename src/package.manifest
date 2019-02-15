@@ -4,7 +4,7 @@
 			"name": "Rich text Block",
 			"alias": "richtextBlock",
 			"view": "/App_Plugins/RichTextBlock/RichTextBlockView.html",
-			"render": "/App_Plugins/RichTextBlock/RichTextBlockRender.cshtml",
+			"render": "/App_Plugins/RichTextBlock/Views/RichTextBlockRender.cshtml",
 			"icon": "icon-article"
 		}
 	]
